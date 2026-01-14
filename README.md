@@ -2,6 +2,11 @@
 
 A git clone in Zig. For fun.
 
+## Resources
+
+(https://github.com/git/git/tree/master/builtin)[https://github.com/git/git/tree/master/builtin]
+(https://zig.guide/)[https://zig.guide/]
+
 ## Notes
 
 ### Core Concepts
@@ -51,9 +56,22 @@ HEAD (.git/HEAD) is a special reference that points to the current branch (or di
 - Checking out - Update HEAD to point to a branch, rebuild the working directory from that commit's tree, update the index.
 - Merging - Find common ancestor, perform three-way merge of trees, create new commit with multiple parents.
 
-### O.G. Source Code
+### Possible File Structure
 
-(https://github.com/git/git/tree/master/builtin)[https://github.com/git/git/tree/master/builtin]
+```
+src/
+├── main.zig
+├── types.zig          # Core Git types
+├── hash.zig           # Hashing operations
+├── object.zig         # Object storage/retrieval
+├── index.zig          # Index file handling
+├── refs.zig           # Branch/tag references
+└── commands/
+    ├── init.zig
+    ├── add.zig
+    ├── commit.zig
+    └── ...
+```
 
 ### TODO
 
